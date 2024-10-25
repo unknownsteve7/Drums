@@ -43,3 +43,12 @@ kbd {
   letter-spacing: .1rem;
   color: #ffc600;
 }
+.controls {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+input[type="range"] {
+  margin: 0 20px;
+}
