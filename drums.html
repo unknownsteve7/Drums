@@ -7,6 +7,12 @@
   <link rel="icon" href="https://fav.farm/🥁" />
 </head>
 <body>
+  <div class="controls">
+    <label for="tempo">Tempo: </label>
+    <input type="range" id="tempo" min="60" max="180" value="120">
+    <button id="record">Record</button>
+    <button id="playback">Playback</button>
+  </div>
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -54,22 +60,6 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
-<script>
-  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
-  }
-  function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return;
-    key.classList.add('playing');
-    audio.currentTime = 0;
-    audio.play();
-  }
-  const keys = Array.from(document.querySelectorAll('.key'));
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  window.addEventListener('keydown', playSound);
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
